@@ -13,7 +13,7 @@ char * dinner[7] = {"닭다리살 스테이크","마라탕","케이크","치킨"
 
 int main(void) {
 
-      for (int i = 0; i <25; i++  ) {
+      for (int i = 0; i <22; i++  ) {
       printf("🌟");
   }
   
@@ -77,7 +77,7 @@ int main(void) {
         musicPrint("Think of Christmas", "Anne-marie");
       }
       if (musicNumber == 3) {
-        musicPrint("Rockin around the christmas", "");
+        musicPrint("Rockin' Around The Christmas Tree", "Brenda Lee");
       }
       if (musicNumber == 4) {
         musicPrint(("Last Christmas"), "Wham!");
@@ -112,7 +112,9 @@ int main(void) {
 
   printf("\n\n| 게임을 플레이 해주셔서 감사합니다🙇‍♂️🙇‍♀️ |\n");
   printf("-씨퓨 동아리 일동-\n\n"); //끝 멘트
-  for (int j = 0;j <25; j++  ) {
+
+  printf("github.com/seefu-club/2022-christmas-game\n\n");
+  for (int j = 0;j <22; j++  ) {
       printf("🌟");
     }
   
