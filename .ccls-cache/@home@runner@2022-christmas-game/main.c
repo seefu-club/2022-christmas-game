@@ -2,16 +2,24 @@
 #include <time.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
 void musicPrint(char title[256], char author[256]);
 void msgPrint(char msg[256], char author[256]);
+void treeFlowerpot();
+void blank(int num);
+void tree(int num);
 
 //저녁메뉴, 영화 리스트
 char * movie[9] = {"나홀로 집에","로맨틱 홀리데이", "크리스마스에는 행복이","러브 액츄얼리","팀버튼의 크리스마스 악몽","폴링 포 크리스마스","렛 잇 스노우","크리스마스를 농장에서","크리스마스를 망치는 방법"};
 
 char * dinner[7] = {"닭다리살 스테이크","마라탕","케이크","치킨","피자","떡볶이","파스타"};
 
+char * num[5] = {"1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"};
+char * heart[5] = {"💟","🧡","💛","💚","💙"};
+
 int main(void) {
+  printf("화면 크기가 달라 깨지는 현상이 발생할 수 있습니다😢\n\n");
 
       for (int i = 0; i <22; i++  ) {
       printf("🌟");
@@ -19,21 +27,38 @@ int main(void) {
   
   printf("\n\n| 2022 씨퓨에서 만든 🎄크리스마스🎄 게임! |\n\n"); //시작 멘트
   
-  printf("💗 🧡 💛 💚 💙\n");
-  printf("🎄 🎄 🎄 🎄 🎄\n");
-  printf("🤎 🤎 🤎 🤎 🤎\n");
-  printf("1  2  3  4  5\n\n");
+  int floor = 4;
+  
+  for(int i = 0; i <5; i++) {
+    blank(floor-1);
+    printf("%4.5s", heart[i]);
+    blank(floor);
+    
+  }
+  printf("\n");
+  
+  for(int k = 0; k < floor; k++) {
+      for(int j = 0; j < 5; j++) {
+        blank(floor - (k + 1));
+        tree(floor - (floor - (k + 1)));
+        blank(floor - (k));
+      }
+      printf("\n");
+  }
+  
+  treeFlowerpot();
+  printf("\n");
 
   int number;
-  printf("트리 번호를 선택해주세요! : ");
+  printf("트리 번호를 선택해주세요 😊 : ");
   scanf("%d", &number);
   if (number == 0 || number > 6) {
-    printf("올바른 번호를 선택해주세요 😥 :");
+    printf("\n올바른 번호를 선택해주세요 😥 :");
     scanf("%d", &number);
   }
     if(number >= 1 && number <= 5) {
     
-    printf("\n선물이 무엇일까요? 💌\n\n");
+    printf("\n당신이 고른 트리 밑에 어떤 선물이 있을까요? 💌\n\n");
     sleep(1);
     printf("확인해보세요!\n\n");
     sleep(1);
@@ -47,7 +72,7 @@ int main(void) {
     int num = rand() % 5;
     
     if (num == 0) {
-      printf("당신의 선물은 포춘 쿠키 메세지입니다 🤗\n\n");
+      printf("당신의 선물은 행운의 메세지입니다 🤗\n\n");
       srand(time(NULL));
       int msgNumber = rand() % 4;
       if(msgNumber == 0) {
@@ -91,7 +116,7 @@ int main(void) {
       }
     else if(num==2) {
     
-      printf("\n꽝입니다..");
+      printf("\n엇 꽝입니다..😢");
       
   }
     else if(num==3) {  
@@ -109,6 +134,7 @@ int main(void) {
   }
      
     }
+  sleep(1);
 
   printf("\n\n| 게임을 플레이 해주셔서 감사합니다🙇‍♂️🙇‍♀️ |\n");
   printf("-씨퓨 동아리 일동-\n\n"); //끝 멘트
@@ -130,4 +156,41 @@ void msgPrint(char msg[256], char author[256]) {
   printf("%s\n\n", msg);
   printf("%s", author);
  
+}
+
+void treeFlowerpot()
+{
+  for(int i = 0 ; i < 5; i++)
+    {
+      blank(1);
+      printf("%s","🤎🤎🤎");
+      blank(2);
+    }
+  printf("\n");
+  for(int i = 0 ; i < 5; i++)
+    {
+      blank(1);
+      printf("%s%s%5s","🤎",num[i],"🤎");
+      blank(2);
+    }
+  printf("\n");
+    for(int i = 0 ; i < 5; i++)
+    {
+      blank(1);
+      printf("%s","🤎🤎🤎");
+      blank(2);
+    }
+  printf("\n");
+
+}
+
+void blank(int num) {
+  for (int h = 0; h < num; h++) {
+    printf(" ");
+  }
+}
+void tree(int num) {
+  for (int h = 0; h < num; h++) {
+    printf("🎄");
+  }
 }
